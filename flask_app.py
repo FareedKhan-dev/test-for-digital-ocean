@@ -3,7 +3,6 @@
 from flask import Flask
 import os
 
-x = os.getenv('myvar')
 # Flask constructor takes the name of
 # current module (__name__) as argument.
 app = Flask(__name__)
@@ -13,8 +12,10 @@ app = Flask(__name__)
 # the associated function.
 @app.route('/')
 # ‘/’ URL is bound with hello_world() function.
-def hello_world(x):
-	return x
+def hello_world():
+    # os.environ['myvar'] = '2334'
+    x = os.getenv('myvar')
+    return x
 
 # main driver function
 if __name__ == '__main__':
